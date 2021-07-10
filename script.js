@@ -1,6 +1,6 @@
 function Gameboard(size) {
     this.canvas = null;
-    this.size = size; // size > 3 may result in crashes due to extensive calculations
+    this.size = size;
     this.width = size * 100;
     this.height = size * 100;
     this.players = { PLAYER: 'p', COMP: 'c' };
@@ -51,7 +51,7 @@ function Gameboard(size) {
         }
     };
 
-    // Draws the grids on the gameboard
+    // Draw the grids of the gameboard
     this.drawGrids = () => {
         let ctx = this.canvas.getContext('2d');
         ctx.clearRect(0, 0, this.size * (this.width / this.size), this.size * (this.width / this.size));
@@ -69,7 +69,7 @@ function Gameboard(size) {
         ctx.stroke();
     }
 
-    // Returns a cell on the gameboard based on the mouse click
+    // Return a cell on the gameboard based on the mouse click
     this.getCell = (clickedPosition) => {
         let minDistance = Infinity;
         let corr_cell = null;
@@ -144,7 +144,7 @@ function Gameboard(size) {
         this.updateGameboardView();
     }
 
-    // Render the gameboard on to the screen with updations
+    // Display the gameboard
     this.updateGameboardView = () => {
         let ctx = this.canvas.getContext('2d');
         this.drawGrids('#000', 2);
@@ -161,7 +161,7 @@ function Gameboard(size) {
         });
     };
 
-    // Checks if any player has won, is it a tie, the game is over
+    // Checks if the game is over
     this.checkForWin = () => {
         let player_win = false, computer_win = false;
         // Checks diagonally
@@ -237,8 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Utility Functions
-// Minimax algorithm for making the computer play intelligently
+// Using minimax algorithm
 function minimax(gb, isMaximizing) {
     gb.checkForWin();
     if (gb.gameStates.over) {
