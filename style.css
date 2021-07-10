@@ -1,0 +1,33 @@
+body {
+    font-family: sans-serif, Helvetica, Arial;
+    margin: 0;
+    padding: 0;
+    background-color: #eee;
+}
+.container { 
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+.container > h1 {
+    text-decoration: underline;
+    font-weight: bold;
+}
+.container > h1 > .container__green {
+    color: green;
+}
+.container > h1 > .container__red {
+    color: red;
+}
+#gameArea {
+    border: 4px solid black;
+    background-color: #f0f061;
+}
+.container > h2 {
+    font-size: 3em;
+    color: #02548a;
+}
